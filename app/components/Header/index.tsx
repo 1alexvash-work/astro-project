@@ -11,17 +11,17 @@ const Header = () => {
     </div>
   );
 
+  const user = {
+    name: "Samanta Johnson",
+    avatar: UserAvatar,
+  };
+
   return (
     <div className="flex justify-between">
       {logo}
       <Navigation />
 
-      <UserCard
-        user={{
-          name: "Samanta Johnson",
-          avatar: UserAvatar,
-        }}
-      />
+      <UserCard user={user} />
     </div>
   );
 };
