@@ -1,17 +1,17 @@
 import React from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 type Props = {
   user: {
     name: string;
-    avatar: string;
+    avatar: StaticImageData;
   };
 };
 
 const UserCard = ({ user }: Props) => (
   <div>
-    <Image src={user.avatar} alt={user.name} />
     <span>{user.name}</span>
+    <Image src={user.avatar} alt={user.name} width="50" height="50" />
   </div>
 );
 
