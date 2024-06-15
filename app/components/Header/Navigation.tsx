@@ -20,7 +20,7 @@ const NavLink = ({
     className="text-white text-lg font-bold px-4 py-2"
     onClick={(event) => {
       event.preventDefault();
-      alert("Navigation not implemented yet!");
+      alert("Navigation is not implemented yet!");
     }}
   >
     {children}
@@ -32,7 +32,7 @@ const Navigation = () => (
     {navigationElements.map((element) => (
       <NavLink key={element}>{element}</NavLink>
     ))}
-    <button onClick={() => alert("Search not implemented yet!")}>
+    <button onClick={() => alert("Search is not implemented yet!")}>
       🔎 search icon
     </button>
   </nav>
