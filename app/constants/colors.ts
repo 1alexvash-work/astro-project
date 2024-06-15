@@ -8,6 +8,7 @@ const colors = {
   pinkButtonBackground: "#FC5F7E",
   secondaryViolet: "#522A5F",
   thirdViolet: "#5A3B57",
+  yellow: "#FFCA64",
 };
 
 export default colors;

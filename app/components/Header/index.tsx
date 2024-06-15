@@ -1,15 +1,15 @@
 import React from "react";
 import UserCard from "./UserCard";
 import UserAvatar from "@/images/avatar.png";
+import Navigation from "./Navigation";
 
 const Header = () => {
   const logo = null;
-  const navigation = null;
 
   return (
-    <div>
+    <div className="flex justify-between">
       {logo}
-      {navigation}
+      <Navigation />
 
       <UserCard
         user={{
