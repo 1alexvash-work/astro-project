@@ -11,7 +11,13 @@ type Props = {
 const UserCard = ({ user }: Props) => (
   <div>
     <span>{user.name}</span>
-    <Image src={user.avatar} alt={user.name} width="50" height="50" />
+    <Image
+      src={user.avatar}
+      alt={user.name}
+      width="50"
+      height="50"
+      style={{ display: "inline" }}
+    />
   </div>
 );
 

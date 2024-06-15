@@ -4,7 +4,12 @@ import UserAvatar from "@/images/avatar.png";
 import Navigation from "./Navigation";
 
 const Header = () => {
-  const logo = null;
+  const logo = (
+    <div>
+      <h1>TarotBook</h1>
+      <p>Tarot & Astrology Readings</p>
+    </div>
+  );
 
   return (
     <div className="flex justify-between">
