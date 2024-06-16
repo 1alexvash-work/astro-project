@@ -9,7 +9,7 @@ type Props = {
 };
 
 const UserCard = ({ user }: Props) => (
-  <div className="flex items-center">
+  <div className="flex items-center justify-end" style={{ width: "240px" }}>
     <span>{user.name}</span>
     <Image
       src={user.avatar}

@@ -14,8 +14,22 @@ const defaultPrompts = [
   "Do I know my soulmate already?",
 ];
 
+const TEXTAREA_MAX_LENGTH = 250;
+
 const Content = () => {
   // TODO: state toggling
+
+  const [question, setQuestion] = React.useState("");
+
+  const handleQuestionChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    const newValue = event.target.value;
+
+    if (newValue.length <= TEXTAREA_MAX_LENGTH) {
+      setQuestion(newValue);
+    }
+  };
 
   return (
     <div className="grid grid-cols-12">
@@ -85,16 +99,26 @@ const Content = () => {
           </p>
         </div>
 
-        <textarea
-          placeholder="question"
-          className="w-full py-5 px-5"
-          style={{
-            resize: "none",
-            background: colors.thirdViolet,
-            borderRadius: "20px",
-          }}
-          rows={5}
-        />
+        <div className="flex relative">
+          <textarea
+            placeholder="question"
+            className="w-full p-5"
+            style={{
+              resize: "none",
+              background: colors.thirdViolet,
+              borderRadius: "20px",
+            }}
+            rows={5}
+            value={question}
+            onChange={handleQuestionChange}
+          />
+          <div
+            className="absolute bottom-3 right-3 text-gray-400 color-#D3BDD9 opacity-[0.4]"
+            style={{ lineHeight: 1 }}
+          >
+            {TEXTAREA_MAX_LENGTH - question.length} characters left
+          </div>
+        </div>
         <button
           style={{
             background: colors.pinkButtonBackground,
