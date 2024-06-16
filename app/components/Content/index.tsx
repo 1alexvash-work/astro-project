@@ -18,8 +18,8 @@ const Content = () => {
   // TODO: state toggling
 
   return (
-    <div className="flex justify-between">
-      <div className="flex flex-col gap-6 items-center">
+    <div className="grid grid-cols-12">
+      <div className="col-span-5 flex flex-col gap-6 items-center">
         <h3
           className="text-center"
           style={{ fontSize: "20px", fontWeight: "600" }}
@@ -30,7 +30,8 @@ const Content = () => {
         <Image src={Cards} alt="cards" width="438" height="321" />
         <p>Take a deep breath</p>
       </div>
-      <div className="flex flex-col gap-8">
+
+      <div className="col-span-7 col-start-7 flex flex-col gap-8 flex-6">
         <h2 style={{ fontSize: "25px", fontWeight: "600" }}>
           Choose the question from below
         </h2>
