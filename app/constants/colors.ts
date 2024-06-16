@@ -1,6 +1,6 @@
 const colors = {
   text: {
-    white: "#FFFFFF",
+    white: "white",
     dark: "#1E1821",
     pink: "#FC5F7E",
   },
