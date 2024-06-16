@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 const Dash = () => (
@@ -6,9 +8,23 @@ const Dash = () => (
 
 const Breadcrumbs = () => (
   <div className="flex items-center gap-2.5" style={{ fontSize: "14px" }}>
-    <span>Main</span>
+    <span
+      onClick={() => {
+        alert("Will redirect you to another page in the future...");
+      }}
+      style={{ cursor: "pointer" }}
+    >
+      Main
+    </span>
     <Dash />
-    <span>Tarot</span>
+    <span
+      onClick={() => {
+        alert("Will redirect you to another page in the future...");
+      }}
+      style={{ cursor: "pointer" }}
+    >
+      Tarot
+    </span>
     <Dash />
     <span style={{ opacity: 0.4 }}>Yes or No answer</span>
   </div>

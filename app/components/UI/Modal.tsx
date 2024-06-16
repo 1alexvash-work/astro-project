@@ -1,3 +1,5 @@
+// TODO: This compoent has not got reusability, a possible future refactor
+
 import React, { useState } from "react";
 
 import Image from "next/image";

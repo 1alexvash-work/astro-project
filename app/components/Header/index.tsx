@@ -5,7 +5,7 @@ import Navigation from "./Navigation";
 
 const Header = () => {
   const logo = (
-    <div>
+    <div style={{ width: "240px" }}>
       <h1 style={{ fontSize: "22px", fontWeight: "bold" }}>TarotBook</h1>
       <p style={{ fontSize: "10px", fontWeight: "600" }}>
         Tarot & Astrology Readings
