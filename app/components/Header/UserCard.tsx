@@ -9,14 +9,14 @@ type Props = {
 };
 
 const UserCard = ({ user }: Props) => (
-  <div>
+  <div className="flex items-center">
     <span>{user.name}</span>
     <Image
       src={user.avatar}
       alt={user.name}
       width="50"
       height="50"
-      style={{ display: "inline" }}
+      style={{ display: "inline", marginLeft: "15px" }}
     />
   </div>
 );
