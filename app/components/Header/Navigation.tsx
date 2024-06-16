@@ -36,7 +36,7 @@ const NavLink = ({
 
 const Navigation = () => (
   <nav
-    className="flex items-center gap-5 py-3.5 rounded-full"
+    className="flex items-center pl-6 gap-5 rounded-full"
     style={{ background: "#F5F5F8" }}
   >
     {navigationElements.map((element) => (

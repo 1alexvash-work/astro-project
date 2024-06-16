@@ -1,6 +1,6 @@
 "use server";
 
-import API from "./constants/API";
+import API from "@/constants/API";
 
 const promptConfig = {
   model: "gpt-4o",

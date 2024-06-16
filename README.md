@@ -8,7 +8,7 @@ Installation:
 yarn
 ```
 
-Create a `.env.local` file in the root of the project and your secret OpenAI API key like so:
+Create a `.env.local` file in the root of the project and add your secret OpenAI API key like so:
 
 ```bash
 GPT_API_KEY=sk-proj-XXXXXXXXXXXXXXXX

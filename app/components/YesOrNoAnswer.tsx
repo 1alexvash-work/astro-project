@@ -1,5 +1,7 @@
 import React from "react";
 
-const YesOrNoAnswer = () => <div>Yes or No answer</div>;
+const YesOrNoAnswer = () => (
+  <div style={{ fontWeight: "bold", fontSize: "32px" }}>Yes or No answer</div>
+);
 
 export default YesOrNoAnswer;

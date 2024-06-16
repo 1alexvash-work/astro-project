@@ -1,6 +1,6 @@
 "use client";
 
-import { callGPT } from "@/ServerFunctions";
+import { callGPT } from "@/api/serverFunctions";
 import React, { useState } from "react";
 
 const TestGPTCall = () => {

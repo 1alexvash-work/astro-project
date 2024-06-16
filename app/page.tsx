@@ -8,7 +8,7 @@ import Content from "./components/Content";
 const Homepage = () => (
   <>
     <div
-      className="flex flex-col gap-6 mx-auto px-20"
+      className="flex flex-col gap-6 mx-auto px-20 pt-5"
       style={{ width: "1200px" }}
     >
       <Header />
