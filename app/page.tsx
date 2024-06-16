@@ -7,11 +7,16 @@ import Content from "./components/Content";
 
 const Homepage = () => (
   <>
-    <Header />
-    <Breadcrumbs />
-    <YesOrNoAnswer />
-    <TestGPTCall />
-    <Content />
+    <div
+      className="flex flex-col gap-6 mx-auto px-20"
+      style={{ width: "1200px" }}
+    >
+      <Header />
+      <Breadcrumbs />
+      <YesOrNoAnswer />
+      <Content />
+      <TestGPTCall />
+    </div>
   </>
 );
 
