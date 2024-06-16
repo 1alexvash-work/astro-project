@@ -1,32 +1,21 @@
 "use client";
 
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 
-import Cards from "@/images/cards.png";
-import RightArrow from "@/images/right-arrow.png";
-
-import Image from "next/image";
-import colors from "@/constants/colors";
-
-const defaultPrompts = [
-  "Should I come back to my ex?",
-  "Will I get a promotion?",
-  "Do I know my soulmate already?",
-];
-
-const TEXTAREA_MAX_LENGTH = 250;
+import configs from "./configs";
+import CardsPlaceholder from "./CardsPlaceholder";
+import QuestionSelector from "./QuestionSelector";
 
 const Content = () => {
   // TODO: state toggling
 
-  const [question, setQuestion] = React.useState("");
+  const [question, setQuestion] = useState("");
+  const [formStage, setFormStage] = useState(0);
 
-  const handleQuestionChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
+  const handleQuestionChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const newValue = event.target.value;
 
-    if (newValue.length <= TEXTAREA_MAX_LENGTH) {
+    if (newValue.length <= configs.textAreaMaxLength) {
       setQuestion(newValue);
     }
   };
@@ -34,102 +23,18 @@ const Content = () => {
   return (
     <div className="grid grid-cols-12">
       <div className="col-span-5 flex flex-col gap-6 items-center">
-        <h3
-          className="text-center"
-          style={{ fontSize: "20px", fontWeight: "600" }}
-        >
-          Let’s check what awaits you in career <br />
-          and finances in the near future
-        </h3>
-        <Image src={Cards} alt="cards" width="438" height="321" />
-        <p>Take a deep breath</p>
+        {formStage === 0 && <CardsPlaceholder />}
+        {/* {formStage === 1 && <SecondCardPlaceholder/>} */}
+        {/* {formStage === 2 && <SecondCardPlaceholder answer='yes'/>} */}
       </div>
 
       <div className="col-span-7 col-start-7 flex flex-col gap-8 flex-6">
-        <h2 style={{ fontSize: "25px", fontWeight: "600" }}>
-          Choose the question from below
-        </h2>
-
-        <div className="flex flex-col gap-2.5">
-          {defaultPrompts.map((prompt) => (
-            <div
-              key={prompt}
-              className="flex justify-between cursor-pointer p-3 items-center"
-              style={{
-                background: colors.secondaryViolet,
-                borderRadius: "16px",
-                fontSize: "20px",
-              }}
-              onClick={() => alert("Coming soon")}
-            >
-              <div>{prompt}</div>
-
-              <Image
-                src={RightArrow}
-                alt="right-arrow"
-                width="24"
-                height="25"
-              />
-            </div>
-          ))}
-        </div>
-
-        <div>
-          <h2 style={{ fontSize: "25px", fontWeight: "600" }}>
-            or ask the Cards
-          </h2>
-          <p className="flex items-center">
-            Submit your{" "}
-            <span
-              style={{
-                transform: "rotate(-4deg)",
-                display: "inline-block",
-                background: colors.yellow,
-                color: colors.text.dark,
-                borderRadius: "8px",
-                fontWeight: "600",
-                padding: "9px 12px",
-                margin: "0 8px",
-                lineHeight: 1,
-              }}
-            >
-              question
-            </span>{" "}
-            <span style={{ fontSize: "14px" }}>for today{"'"}s guidance:</span>
-          </p>
-        </div>
-
-        <div className="flex relative">
-          <textarea
-            placeholder="question"
-            className="w-full p-5"
-            style={{
-              resize: "none",
-              background: colors.thirdViolet,
-              borderRadius: "20px",
-            }}
-            rows={5}
-            value={question}
-            onChange={handleQuestionChange}
-          />
-          <div
-            className="absolute bottom-3 right-3 text-gray-400 color-#D3BDD9 opacity-[0.4]"
-            style={{ lineHeight: 1 }}
-          >
-            {TEXTAREA_MAX_LENGTH - question.length} characters left
-          </div>
-        </div>
-        <button
-          style={{
-            background: colors.pinkButtonBackground,
-            borderRadius: "15px",
-            width: "206px",
-            height: "50px",
-            fontSize: "18px",
-          }}
-        >
-          Get The Answer
-        </button>
+        <QuestionSelector
+          question={question}
+          setQuestion={setQuestion}
+          setFormStage={setFormStage}
+          handleQuestionChange={handleQuestionChange}
+        />
       </div>
     </div>
   );
