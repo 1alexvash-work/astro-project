@@ -8,8 +8,8 @@ import Content from "./components/Content";
 const Homepage = () => (
   <>
     <div
-      className="flex flex-col gap-6 mx-auto px-20 pt-5"
-      style={{ width: "1200px" }}
+      className="flex flex-col gap-6 mx-auto p-5"
+      style={{ width: "1240px" }}
     >
       <Header />
       <Breadcrumbs />
