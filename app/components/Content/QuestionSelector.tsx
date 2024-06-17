@@ -25,7 +25,7 @@ const QuestionSelector = ({
 }: Props) => (
   <>
     <h2
-      className="mt-2 lg:mt-15 text-[20px] lg:text-[25px]"
+      className="mt-2 lg:mt-[60px] text-[20px] lg:text-[25px]"
       style={{ fontWeight: "600" }}
     >
       Choose the question from below
