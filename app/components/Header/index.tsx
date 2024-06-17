@@ -2,6 +2,8 @@ import React from "react";
 import UserCard from "./UserCard";
 import UserAvatar from "@/images/avatar.png";
 import Navigation from "./Navigation";
+import MobileMenuTurnOn from "@/images/mobile-menu-turn-on.png";
+import Image from "next/image";
 
 const Header = () => {
   const logo = (
@@ -27,7 +29,30 @@ const Header = () => {
     </div>
   );
 
-  const mobileHeader = <div className="flex lg:hidden">Mobile Header</div>;
+  const mobileHeader = (
+    <div className="justify-between flex lg:hidden">
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <div
+          style={{
+            width: "24px",
+            height: "24px",
+            background: "white",
+            borderRadius: "4px",
+            marginRight: "10px",
+          }}
+        />
+        <span style={{ fontSize: "14px", fontWeight: "bold" }}>TarrotBook</span>
+        <div />
+      </div>
+
+      <Image
+        src={MobileMenuTurnOn}
+        alt="mobile menu turn on"
+        width="46"
+        height="24"
+      />
+    </div>
+  );
 
   return (
     <>
