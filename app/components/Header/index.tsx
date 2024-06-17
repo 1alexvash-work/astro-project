@@ -5,7 +5,7 @@ import Navigation from "./Navigation";
 
 const Header = () => {
   const logo = (
-    <div style={{ width: "240px" }}>
+    <div style={{ flex: 1 }}>
       <h1 style={{ fontSize: "22px", fontWeight: "bold" }}>TarotBook</h1>
       <p style={{ fontSize: "10px", fontWeight: "600" }}>
         Tarot & Astrology Readings
@@ -18,13 +18,22 @@ const Header = () => {
     avatar: UserAvatar,
   };
 
-  return (
-    <div className="flex justify-between">
+  const desktopHeader = (
+    <div className="justify-between hidden lg:flex">
       {logo}
       <Navigation />
 
       <UserCard user={user} />
     </div>
+  );
+
+  const mobileHeader = <div className="flex lg:hidden">Mobile Header</div>;
+
+  return (
+    <>
+      {desktopHeader}
+      {mobileHeader}
+    </>
   );
 };
 

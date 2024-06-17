@@ -16,5 +16,13 @@ const config: Config = {
     },
   },
   plugins: [],
+  screens: {
+    // * For the reference, the default breakpoints are:
+    // sm: "640px",
+    // md: "768px",
+    // lg: "1024px",
+    // xl: "1240px",
+    // "2xl": "1536px",
+  },
 };
 export default config;
