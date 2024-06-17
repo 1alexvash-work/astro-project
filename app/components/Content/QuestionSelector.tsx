@@ -99,7 +99,14 @@ const QuestionSelector = ({
         height: "50px",
         fontSize: "18px",
       }}
-      onClick={() => setFormStage((previous) => previous + 1)}
+      onClick={() => {
+        if (question.trim().length === 0) {
+          alert("Please enter a question");
+          return;
+        }
+
+        setFormStage((previous) => previous + 1);
+      }}
     >
       Get The Answer
     </button>
