@@ -4,7 +4,8 @@ import EmpressCard from "@/images/empress-card.png";
 import colors from "@/constants/colors";
 
 type Props = {
-  answer: null | "yes" | "no";
+  answer: "YES" | "NO";
+  isLoading: boolean;
 };
 
 const MiniLoadingSkeleton = () => (
@@ -14,7 +15,7 @@ const MiniLoadingSkeleton = () => (
   />
 );
 
-const SecondCardPlaceholder = ({ answer }: Props) => (
+const SecondCardPlaceholder = ({ answer, isLoading }: Props) => (
   <div className="text-center">
     <div className="mb-6">
       <h2 style={{ fontSize: "25px", fontWeight: 600, lineHeight: 1.3 }}>
@@ -23,7 +24,7 @@ const SecondCardPlaceholder = ({ answer }: Props) => (
       <p className="pt-2 pb-3" style={{ opacity: 0.75 }}>
         Should I come back to my ex?
       </p>
-      {answer === null ? (
+      {isLoading ? (
         <MiniLoadingSkeleton />
       ) : (
         <div
@@ -34,7 +35,7 @@ const SecondCardPlaceholder = ({ answer }: Props) => (
             lineHeight: 1,
           }}
         >
-          {answer.toUpperCase()}
+          {answer}
         </div>
       )}
     </div>

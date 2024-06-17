@@ -56,7 +56,18 @@ const callGPT = async ({ message }: CallGPTProps) => {
       },
       body: JSON.stringify(promptConfig),
     });
-    const result = await response.json();
+
+    const result = (await response.json()) as {
+      choices: [
+        {
+          message: {
+            content: string;
+          };
+        },
+      ];
+    }; // TODO: possible return the full type
+
+    result.choices[0].message.content;
     return { result, status: response.status };
   } catch (error) {
     return { error, status: 500 };

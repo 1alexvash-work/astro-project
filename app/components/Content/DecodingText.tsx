@@ -7,10 +7,11 @@ import useModal from "@/hooks/useModal";
 import Modal from "../UI/Modal";
 
 type Props = {
-  answer: null | "yes" | "no";
+  explanation: string;
+  isLoading: boolean;
 };
 
-const MiniLoadingSkeleton = () => (
+const LoadingSkeleton = () => (
   <div
     className="animate-pulse bg-gray-500 w-80 inline-block"
     style={{
@@ -22,7 +23,7 @@ const MiniLoadingSkeleton = () => (
   />
 );
 
-const DecodingText = ({ answer }: Props) => {
+const DecodingText = ({ explanation, isLoading }: Props) => {
   const { isOpen, openModal, closeModal } = useModal();
 
   return (
@@ -37,8 +38,8 @@ const DecodingText = ({ answer }: Props) => {
           alignSelf: "flex-start",
         }}
       />
-      {answer === null ? (
-        <MiniLoadingSkeleton />
+      {isLoading ? (
+        <LoadingSkeleton />
       ) : (
         <div>
           <div
@@ -50,14 +51,9 @@ const DecodingText = ({ answer }: Props) => {
               marginBottom: "16px",
             }}
           >
-            It can be an indication of a fear of being excluded from the
-            conversation or a sign of intense worry for someone who may not be
-            showing any response. <br />
-            <br /> Dreams can also represent the turbulent and uncertain times
-            that can be difficult to navigate. They can serve as a warning of
-            the potential danger that lies ahead and can symbolize the chaos
-            that often follows.
+            {explanation}
           </div>
+
           <div className="flex justify-between">
             <button
               style={{
@@ -78,13 +74,11 @@ const DecodingText = ({ answer }: Props) => {
                 width="20"
                 height="21"
                 className="mr-2"
-                style={{
-                  alignSelf: "flex-start",
-                }}
+                style={{ alignSelf: "flex-start" }}
               />
               <p
                 style={{
-                  color: "D3BDD9",
+                  color: "#D3BDD9",
                   fontSize: "11px",
                   alignSelf: "flex-start",
                   opacity: 0.6,

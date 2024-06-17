@@ -13,6 +13,7 @@ type Props = {
   setQuestion: Dispatch<SetStateAction<string>>;
   setFormStage: Dispatch<SetStateAction<number>>;
   handleQuestionChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  callGPTClient: ({ question }: { question: string }) => void;
 };
 
 const QuestionSelector = ({
@@ -20,6 +21,7 @@ const QuestionSelector = ({
   setQuestion,
   setFormStage,
   handleQuestionChange,
+  callGPTClient,
 }: Props) => (
   <>
     <h2 style={{ fontSize: "25px", fontWeight: "600" }}>
@@ -39,6 +41,7 @@ const QuestionSelector = ({
           onClick={() => {
             setQuestion(prompt);
             setFormStage((previous) => previous + 1);
+            callGPTClient({ question: prompt });
           }}
         >
           <div>{prompt}</div>
@@ -106,6 +109,8 @@ const QuestionSelector = ({
         }
 
         setFormStage((previous) => previous + 1);
+
+        callGPTClient({ question });
       }}
     >
       Get The Answer
