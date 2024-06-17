@@ -9,6 +9,10 @@ import Image from "next/image";
 import Sidebar from "./Sidebar";
 import { user } from "./configs";
 
+import polygon2 from "./polygon2";
+import polygon4 from "./polygon4";
+import polygon80 from "./polygon80";
+
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -31,7 +35,7 @@ const Header = () => {
   );
 
   const mobileHeader = (
-    <div className="justify-between flex lg:hidden">
+    <div className="relative justify-between flex lg:hidden">
       <div style={{ display: "flex", alignItems: "center" }}>
         <div
           style={{
@@ -45,7 +49,6 @@ const Header = () => {
         <span style={{ fontSize: "14px", fontWeight: "bold" }}>TarrotBook</span>
         <div />
       </div>
-
       <Image
         src={MobileMenuTurnOn}
         alt="mobile menu turn on"
@@ -54,8 +57,43 @@ const Header = () => {
         className="cursor-pointer"
         onClick={() => setSidebarOpen(true)}
       />
-
       {sidebarOpen && <Sidebar setSidebarOpen={setSidebarOpen} />}
+
+      <div
+        style={{
+          position: "absolute",
+          zIndex: "-1",
+          top: "0",
+          right: "0",
+          filter: "blur(50px)",
+        }}
+      >
+        {polygon2}
+      </div>
+
+      <div
+        style={{
+          position: "absolute",
+          zIndex: "-1",
+          top: "-50px",
+          left: "-0px",
+          filter: "blur(20px)",
+        }}
+      >
+        {polygon4}
+      </div>
+
+      <div
+        style={{
+          position: "absolute",
+          zIndex: "-1",
+          top: "75px",
+          left: "0px",
+          filter: "blur(100px)",
+        }}
+      >
+        {polygon80}
+      </div>
     </div>
   );
 
