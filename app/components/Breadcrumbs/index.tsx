@@ -7,7 +7,10 @@ const Dash = () => (
 );
 
 const Breadcrumbs = () => (
-  <div className="flex items-center gap-2.5" style={{ fontSize: "14px" }}>
+  <div
+    className="hidden lg:flex items-center gap-2.5"
+    style={{ fontSize: "14px" }}
+  >
     <span
       onClick={() => {
         alert("Will redirect you to another page in the future...");
