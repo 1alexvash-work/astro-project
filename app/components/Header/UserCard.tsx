@@ -16,7 +16,7 @@ const UserCard = ({ user }: Props) => (
       alt={user.name}
       width="50"
       height="50"
-      style={{ display: "inline", marginLeft: "15px" }}
+      style={{ display: "inline", marginLeft: "15px", fontWeight: 600 }}
     />
   </div>
 );

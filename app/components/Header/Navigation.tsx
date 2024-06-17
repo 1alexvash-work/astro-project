@@ -5,7 +5,7 @@ import React from "react";
 import Search from "@/images/search.png";
 import Image from "next/image";
 
-const navigationElements = [
+export const navigationElements = [
   "Advisors",
   "Chats",
   "Articles",

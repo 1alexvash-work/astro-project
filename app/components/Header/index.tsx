@@ -1,11 +1,17 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import UserCard from "./UserCard";
-import UserAvatar from "@/images/avatar.png";
+
 import Navigation from "./Navigation";
 import MobileMenuTurnOn from "@/images/mobile-menu-turn-on.png";
 import Image from "next/image";
+import Sidebar from "./Sidebar";
+import { user } from "./configs";
 
 const Header = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   const logo = (
     <div style={{ flex: 1 }}>
       <h1 style={{ fontSize: "22px", fontWeight: "bold" }}>TarotBook</h1>
@@ -14,11 +20,6 @@ const Header = () => {
       </p>
     </div>
   );
-
-  const user = {
-    name: "Samanta Johnson",
-    avatar: UserAvatar,
-  };
 
   const desktopHeader = (
     <div className="justify-between hidden lg:flex">
@@ -50,7 +51,11 @@ const Header = () => {
         alt="mobile menu turn on"
         width="46"
         height="24"
+        className="cursor-pointer"
+        onClick={() => setSidebarOpen(true)}
       />
+
+      {sidebarOpen && <Sidebar setSidebarOpen={setSidebarOpen} />}
     </div>
   );
 
