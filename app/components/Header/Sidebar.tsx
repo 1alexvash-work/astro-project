@@ -42,6 +42,7 @@ const Sidebar = ({ setSidebarOpen }: Props) => (
   <div
     style={{
       position: "fixed",
+      zIndex: 1,
       top: 0,
       right: 0,
       width: "280px",
