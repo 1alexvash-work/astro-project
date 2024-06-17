@@ -6,6 +6,7 @@ import configs from "./configs";
 import CardsPlaceholder from "./CardsPlaceholder";
 import QuestionSelector from "./QuestionSelector";
 import SecondCardPlaceholder from "./SecondCardPlaceholder";
+import DecodingText from "./DecodingText";
 
 const Content = () => {
   // TODO: add loading state
@@ -31,12 +32,15 @@ const Content = () => {
       </div>
 
       <div className="col-span-7 col-start-7 flex flex-col gap-8 flex-6">
-        <QuestionSelector
-          question={question}
-          setQuestion={setQuestion}
-          setFormStage={setFormStage}
-          handleQuestionChange={handleQuestionChange}
-        />
+        {formStage === 0 && (
+          <QuestionSelector
+            question={question}
+            setQuestion={setQuestion}
+            setFormStage={setFormStage}
+            handleQuestionChange={handleQuestionChange}
+          />
+        )}
+        {formStage > 0 && <DecodingText answer={answer} />}
       </div>
     </div>
   );

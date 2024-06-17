@@ -10,7 +10,7 @@ type Props = {
 const MiniLoadingSkeleton = () => (
   <div
     className="animate-pulse bg-gray-500 w-20 inline-block"
-    style={{ height: "31px", borderRadius: "4px", opacity: 0.8 }}
+    style={{ height: "31px", borderRadius: "4px", opacity: 0.75 }}
   />
 );
 
@@ -20,7 +20,7 @@ const SecondCardPlaceholder = ({ answer }: Props) => (
       <h2 style={{ fontSize: "25px", fontWeight: 600, lineHeight: 1.3 }}>
         Your question:
       </h2>
-      <p className="pt-2 pb-3" style={{ opacity: 0.7 }}>
+      <p className="pt-2 pb-3" style={{ opacity: 0.75 }}>
         Should I come back to my ex?
       </p>
       {answer === null ? (
