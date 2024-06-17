@@ -19,7 +19,7 @@ const promptConfig = {
       content: [
         {
           type: "text",
-          text: "Draw tarot card: magic wand\nQuestion: When my ex returns?",
+          text: "",
         },
       ],
     },
@@ -40,7 +40,13 @@ const promptConfig = {
   presence_penalty: 0,
 };
 
-const callGPT = async () => {
+type CallGPTProps = {
+  message: string;
+};
+
+const callGPT = async ({ message }: CallGPTProps) => {
+  promptConfig.messages[1].content[0].text = message;
+
   try {
     const response: any = await fetch(API.GPT.CHAT_COMPLETIONS, {
       method: "POST",
