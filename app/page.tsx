@@ -12,7 +12,7 @@ type Props = {
 
 const PageContainer = ({ children }: Props) => (
   <div
-    className="flex flex-col gap-6 mx-auto p-5"
+    className="flex flex-col gap-6 mx-auto p-4 lg:p-5"
     style={{ width: pageWidth, maxWidth: "100%" }}
   >
     {children}
