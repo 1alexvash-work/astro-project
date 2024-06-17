@@ -8,6 +8,7 @@ import PsychicAvatar0 from "@/images/avatar-psychic-0.png";
 import PsychicAvatar1 from "@/images/avatar-psychic-1.png";
 import PsychicAvatar2 from "@/images/avatar-psychic-2.png";
 import AvatarSelected from "@/images/avatar-selected.png";
+import ModalCross from "@/images/modal-cross.png";
 import AvatarUnselected from "@/images/avatar-unselected.png";
 import colors from "@/constants/colors";
 
@@ -26,11 +27,25 @@ const Modal = ({ onClose }: Props) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-      <div className="relative bg-white rounded-lg p-8 flex flex-col">
-        <h1 style={{ color: colors.text.dark }}>
-          Choose the psychic to answer:
-        </h1>
-        <div className="flex justify-between">
+      <div
+        className="bg-white py-4 px-5 flex flex-col"
+        style={{ width: "480px", borderRadius: "20px" }}
+      >
+        <div className="flex justify-between items-center">
+          <h1
+            style={{
+              color: colors.text.dark,
+              fontSize: "25px",
+              fontWeight: 600,
+            }}
+          >
+            Choose The Psychic To Answer:
+          </h1>
+          <button onClick={onClose}>
+            <Image src={ModalCross} alt="Close" width="30" height="30" />
+          </button>
+        </div>
+        <div className="flex justify-evenly py-4 mt-2">
           {people.map((person, index) => (
             <div key={index}>
               <div
@@ -44,26 +59,35 @@ const Modal = ({ onClose }: Props) => {
                   height="93"
                   className={`rounded-full ${selectedPerson === index ? `border-4 border-[${colors.pinkButtonBackground}]` : "cursor-pointer"}`}
                 />
-                {selectedPerson === index ? (
-                  <Image
-                    src={AvatarSelected}
-                    alt="Avatar selected"
-                    width="24"
-                    height="25"
-                    className="absolute bottom-0 right-0"
-                  />
-                ) : (
-                  <Image
-                    src={AvatarUnselected}
-                    alt="Avatar unselected"
-                    width="24"
-                    height="25"
-                    className="absolute bottom-0 right-0"
-                  />
-                )}
+                <Image
+                  src={
+                    selectedPerson === index ? AvatarSelected : AvatarUnselected
+                  }
+                  alt="Avatar selected"
+                  width="24"
+                  height="25"
+                  className="absolute bottom-0 right-0"
+                />
               </div>
-              <p>{person.name}</p>
-              <p>{person.rate}</p>
+              <p
+                style={{
+                  color: colors.text.dark,
+                  fontWeight: "600",
+                  textAlign: "center",
+                  marginTop: "8px",
+                }}
+              >
+                {person.name}
+              </p>
+              <p
+                style={{
+                  color: colors.text.dark,
+                  fontSize: "11px",
+                  textAlign: "center",
+                }}
+              >
+                {person.rate}
+              </p>
             </div>
           ))}
         </div>
@@ -72,27 +96,27 @@ const Modal = ({ onClose }: Props) => {
           style={{
             color: colors.text.white,
             background: colors.pinkButtonBackground,
+            borderRadius: "15px",
+            padding: "12px 60px",
+            alignSelf: "center",
+            fontSize: "18px",
+            fontWeight: 500,
+          }}
+          onClick={() => alert("Future back-end flow is not implemented yet.")}
+        >
+          Ask This Question Now
+        </button>
+        <p
+          style={{
+            color: colors.text.dark,
+            fontSize: "14px",
+            alignSelf: "center",
+            marginTop: "4px",
+            paddingTop: "15px",
           }}
         >
-          Ask this question now
-        </button>
-        <p style={{ color: colors.text.dark }}>
           Book a session at a convenient time
         </p>
-        <button
-          style={{
-            position: "absolute",
-            top: "10px",
-            right: "10px",
-            color: colors.text.dark,
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-          }}
-          onClick={onClose}
-        >
-          X
-        </button>
       </div>
     </div>
   );
