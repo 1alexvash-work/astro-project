@@ -24,7 +24,7 @@ const QuestionSelector = ({
   callGPTClient,
 }: Props) => (
   <>
-    <h2 style={{ fontSize: "25px", fontWeight: "600" }}>
+    <h2 style={{ fontSize: "25px", fontWeight: "600", marginTop: "85px" }}>
       Choose the question from below
     </h2>
 
@@ -52,7 +52,9 @@ const QuestionSelector = ({
     </div>
 
     <div>
-      <h2 style={{ fontSize: "25px", fontWeight: "600" }}>or ask the Cards</h2>
+      <h2 style={{ fontSize: "25px", fontWeight: "600", marginTop: "8px" }}>
+        or ask the Cards
+      </h2>
       <p className="flex items-center">
         Submit your{" "}
         <span
@@ -74,7 +76,7 @@ const QuestionSelector = ({
       </p>
     </div>
 
-    <div className="flex relative">
+    <div className="flex relative" style={{ marginTop: "-10px" }}>
       <textarea
         placeholder="question"
         className="w-full p-5"

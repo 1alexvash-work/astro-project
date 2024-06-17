@@ -4,7 +4,10 @@ import Image from "next/image";
 
 const CardsPlaceholder = () => (
   <>
-    <h3 className="text-center" style={{ fontSize: "20px", fontWeight: "600" }}>
+    <h3
+      className="text-center"
+      style={{ fontSize: "20px", fontWeight: "600", marginTop: "105px" }}
+    >
       Let’s check what awaits you in career <br />
       and finances in the near future
     </h3>

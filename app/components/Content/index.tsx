@@ -33,18 +33,19 @@ const Content = () => {
         message: question,
       });
 
-      const contentAnswer = result!.choices[0].message.content.toString();
+      const contentAnswer = result!.choices[0].message.content;
 
       try {
         const { answer, explanation } = JSON.parse(contentAnswer);
+
         setResult({ answer, explanation });
       } catch (error) {
         alert(
           "Something went wrong while giving the answer. Please try again."
         );
 
+        setQuestion("");
         setError(null);
-        setResult({ answer: "YES", explanation: "" });
         setFormStage(0);
       }
     } catch (error) {
