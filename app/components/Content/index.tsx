@@ -7,14 +7,43 @@ import CardsPlaceholder from "./CardsPlaceholder";
 import QuestionSelector from "./QuestionSelector";
 import SecondCardPlaceholder from "./SecondCardPlaceholder";
 import DecodingText from "./DecodingText";
+import { callGPT } from "@/api/serverFunctions";
 
 const Content = () => {
-  // TODO: add loading state
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<any>(null);
 
   const [question, setQuestion] = useState("");
   const [formStage, setFormStage] = useState(0);
+  const [result, setResult] = useState<{
+    answer: "YES" | "NO";
+    explanation: string;
+  }>({
+    answer: "YES",
+    explanation: "",
+  });
 
-  const [answer, setAnswer] = useState<null | "yes" | "no">(null);
+  const callGPTClient = async ({ question }: { question: string }) => {
+    setIsLoading(true);
+
+    try {
+      setError(null);
+
+      const { result } = await callGPT({
+        message: question,
+      });
+
+      const contentAnswer = result!.choices[0].message.content.toString();
+
+      const { answer, explanation } = JSON.parse(contentAnswer);
+
+      setResult({ answer, explanation });
+    } catch (error) {
+      setError({ error });
+    }
+
+    setIsLoading(false);
+  };
 
   const handleQuestionChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const newValue = event.target.value;
@@ -28,7 +57,9 @@ const Content = () => {
     <div className="grid grid-cols-12">
       <div className="col-span-5 flex flex-col gap-6 items-center">
         {formStage === 0 && <CardsPlaceholder />}
-        {formStage > 0 && <SecondCardPlaceholder answer={answer} />}
+        {formStage > 0 && (
+          <SecondCardPlaceholder answer={result.answer} isLoading={isLoading} />
+        )}
       </div>
 
       <div className="col-span-7 col-start-7 flex flex-col gap-8 flex-6">
@@ -38,10 +69,22 @@ const Content = () => {
             setQuestion={setQuestion}
             setFormStage={setFormStage}
             handleQuestionChange={handleQuestionChange}
+            callGPTClient={callGPTClient}
           />
         )}
-        {formStage > 0 && <DecodingText answer={answer} />}
+        {formStage > 0 && (
+          <DecodingText
+            explanation={result.explanation}
+            isLoading={isLoading}
+          />
+        )}
       </div>
+
+      {error && (
+        <div style={{ color: "red", fontSize: "14px", marginTop: "50px" }}>
+          Error: {JSON.stringify(error)}
+        </div>
+      )}
     </div>
   );
 };
