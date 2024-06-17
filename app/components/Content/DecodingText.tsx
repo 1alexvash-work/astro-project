@@ -27,13 +27,13 @@ const DecodingText = ({ explanation, isLoading }: Props) => {
   const { isOpen, openModal, closeModal } = useModal();
 
   return (
-    <div className="flex" style={{ marginTop: "200px" }}>
+    <div className="flex mt-4 lg:mt-48 relative">
       <Image
         src={AvatarIcon}
         alt="Avatar Icon"
         width="32"
         height="33"
-        className="mr-2"
+        className="absolute -top-11 lg:static mr-2 lg:block"
         style={{
           alignSelf: "flex-start",
         }}
@@ -54,7 +54,7 @@ const DecodingText = ({ explanation, isLoading }: Props) => {
             {explanation}
           </div>
 
-          <div className="flex justify-between">
+          <div className="flex-col-reverse lg:flex-row flex justify-between">
             <button
               style={{
                 background: colors.pinkButtonBackground,
@@ -77,6 +77,7 @@ const DecodingText = ({ explanation, isLoading }: Props) => {
                 style={{ alignSelf: "flex-start" }}
               />
               <p
+                className="mb-4 lg:mb-0"
                 style={{
                   color: "#D3BDD9",
                   fontSize: "11px",

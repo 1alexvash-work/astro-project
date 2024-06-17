@@ -8,7 +8,7 @@ const Dash = () => (
 
 const Breadcrumbs = () => (
   <div
-    className="hidden lg:flex items-center gap-2.5"
+    className="hidden lg:flex items-center gap-2.5 mt-6"
     style={{ fontSize: "14px" }}
   >
     <span

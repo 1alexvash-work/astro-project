@@ -4,7 +4,7 @@ import arrowToTheLeft from "@/images/arrow-to-the-left.svg";
 
 const YesOrNoAnswerDesktop = () => (
   <div
-    className="hidden lg:block"
+    className="hidden lg:block -mt-5"
     style={{ fontWeight: "bold", fontSize: "32px" }}
   >
     Yes or No answer
@@ -21,7 +21,7 @@ const YesOrNoAnswerMobile = () => (
       alt={arrowToTheLeft}
       width="22"
       height="20"
-      style={{ display: "inline", fontWeight: 600 }}
+      style={{ display: "inline", fontWeight: 600, marginLeft: "8px" }}
     />
     Yes or No answer
   </div>

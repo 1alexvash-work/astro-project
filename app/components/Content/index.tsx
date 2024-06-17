@@ -41,7 +41,7 @@ const Content = () => {
         setResult({ answer, explanation });
       } catch (error) {
         alert(
-          "Something went wrong while giving the answer. Please try again."
+          "Something went wrong while giving the answer. It looks like GPT did not correctly returned the response. Please try again."
         );
 
         setQuestion("");
@@ -68,11 +68,15 @@ const Content = () => {
       <div className="col-span-12 lg:col-span-5 flex flex-col gap-6 items-center">
         {formStage === 0 && <CardsPlaceholder />}
         {formStage > 0 && (
-          <SecondCardPlaceholder answer={result.answer} isLoading={isLoading} />
+          <SecondCardPlaceholder
+            answer={result.answer}
+            isLoading={isLoading}
+            question={question}
+          />
         )}
       </div>
 
-      <div className="col-span-12 lg:col-span-7 lg:col-start-7 flex flex-col gap-8 flex-6">
+      <div className="col-span-12 lg:col-span-7 lg:col-start-7 flex flex-col gap-4 lg:gap-8 flex-6">
         {formStage === 0 && (
           <QuestionSelector
             question={question}

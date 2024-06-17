@@ -24,7 +24,10 @@ const QuestionSelector = ({
   callGPTClient,
 }: Props) => (
   <>
-    <h2 style={{ fontSize: "25px", fontWeight: "600", marginTop: "85px" }}>
+    <h2
+      className="mt-2 lg:mt-15 text-[20px] lg:text-[25px]"
+      style={{ fontWeight: "600" }}
+    >
       Choose the question from below
     </h2>
 
@@ -32,11 +35,10 @@ const QuestionSelector = ({
       {configs.defaultPrompts.map((prompt) => (
         <div
           key={prompt}
-          className="flex justify-between cursor-pointer p-3 items-center"
+          className="flex justify-between cursor-pointer p-3 py-2 items-center text-[14px] lg:text-[20px]"
           style={{
             background: colors.secondaryViolet,
             borderRadius: "16px",
-            fontSize: "20px",
           }}
           onClick={() => {
             setQuestion(prompt);
@@ -52,10 +54,13 @@ const QuestionSelector = ({
     </div>
 
     <div>
-      <h2 style={{ fontSize: "25px", fontWeight: "600", marginTop: "8px" }}>
+      <h2
+        className="mt-2 text-[20px] lg:text-[25px]"
+        style={{ fontWeight: "600" }}
+      >
         or ask the Cards
       </h2>
-      <p className="flex items-center">
+      <p className="flex items-center text-[14px] lg:text-[16px]">
         Submit your{" "}
         <span
           style={{
@@ -76,7 +81,7 @@ const QuestionSelector = ({
       </p>
     </div>
 
-    <div className="flex relative" style={{ marginTop: "-10px" }}>
+    <div className="flex relative mt-0 lg:mt-2.5">
       <textarea
         placeholder="question"
         className="w-full p-5"
@@ -97,6 +102,7 @@ const QuestionSelector = ({
       </div>
     </div>
     <button
+      className="mt-0 lg:-mt-4"
       style={{
         background: colors.pinkButtonBackground,
         borderRadius: "15px",

@@ -6,6 +6,7 @@ import colors from "@/constants/colors";
 type Props = {
   answer: "YES" | "NO";
   isLoading: boolean;
+  question: string;
 };
 
 const MiniLoadingSkeleton = () => (
@@ -15,21 +16,24 @@ const MiniLoadingSkeleton = () => (
   />
 );
 
-const SecondCardPlaceholder = ({ answer, isLoading }: Props) => (
+const SecondCardPlaceholder = ({ answer, isLoading, question }: Props) => (
   <div className="text-center">
     <div className="mb-6">
-      <h2 style={{ fontSize: "25px", fontWeight: 600, lineHeight: 1.3 }}>
+      <h2
+        className="text-[18px] lg:text-[25px]"
+        style={{ fontWeight: 600, lineHeight: 1.3 }}
+      >
         Your question:
       </h2>
       <p className="pt-2 pb-3" style={{ opacity: 0.75 }}>
-        Should I come back to my ex?
+        {question}
       </p>
       {isLoading ? (
         <MiniLoadingSkeleton />
       ) : (
         <div
+          className="text-[20px] lg:text-[35px]"
           style={{
-            fontSize: "35px",
             color: colors.text.pink,
             fontWeight: "bold",
             lineHeight: 1,
@@ -39,7 +43,13 @@ const SecondCardPlaceholder = ({ answer, isLoading }: Props) => (
         </div>
       )}
     </div>
-    <Image src={EmpressCard} alt="Empress Card" width={216} height={400} />
+    <Image
+      src={EmpressCard}
+      alt="Empress Card"
+      width={216}
+      height={400}
+      className="mx-auto"
+    />
   </div>
 );
 

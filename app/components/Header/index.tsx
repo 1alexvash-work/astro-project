@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import UserCard from "./UserCard";
 
 import Navigation from "./Navigation";
-import MobileMenuTurnOn from "@/images/mobile-menu-turn-on.png";
+import MobileMenuTurnOn from "@/images/mobile-menu-turn-on.svg";
 import Image from "next/image";
 import Sidebar from "./Sidebar";
 import { user } from "./configs";
@@ -18,7 +18,7 @@ const Header = () => {
 
   const logo = (
     <div style={{ flex: 1 }}>
-      <h1 style={{ fontSize: "22px", fontWeight: "bold" }}>TarotBook</h1>
+      <h1 style={{ fontSize: "22px", fontWeight: "600" }}>TarotBook</h1>
       <p style={{ fontSize: "10px", fontWeight: "600" }}>
         Tarot & Astrology Readings
       </p>
